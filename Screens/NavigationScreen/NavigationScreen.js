@@ -27,7 +27,14 @@ export const NavigationScreen = observer(() => {
                             <Text style={focused ? styles.tabBarSelectedLabel : styles.tabBarDisabledLabel}>
                                 Дневник
                             </Text>
-                        )
+                        ),
+                        headerStyle: {
+                            backgroundColor: 'green',
+                            borderBottomLeftRadius: 10,
+                            borderBottomRightRadius: 10,
+                        },
+                        title: 'Сегодня',
+                        headerTitleAlign: "center"
                     }
                 }
             />
