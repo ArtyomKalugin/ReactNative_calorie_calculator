@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     },
     mainContainer: {
         backgroundColor: "#F5F5F5",
-        flex: 1
+        flex: 1,
     },
     safeArea: {
         flex: 1
@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
         lineHeight: 19,
         color: 'white',
         textAlign: 'center',
-        marginTop: 46
+        marginBottom: 26,
     },
     separator: {
         height: 1,
@@ -66,9 +66,13 @@ export const styles = StyleSheet.create({
         backgroundColor: '#22BE54',
         borderBottomLeftRadius: 26,
         borderBottomRightRadius: 26,
-        height: 120,
+        height: 105,
         width: 'auto',
-        justifyContent:'center',
-        alignItems: 'center'
+        justifyContent: "flex-end",
+    },
+    mainScreenCalorieCellContainer: {
+        marginTop: 28,
+        flexDirection: "column",
+        flex: 1,
     }
 })
