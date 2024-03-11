@@ -8,9 +8,7 @@ import {styles} from "../../Assets/Styles/Styles";
 const Tab = createBottomTabNavigator();
 export const NavigationScreen = observer(() => {
     return (
-        <Tab.Navigator
-            sceneContainerStyle={{backgroundColor: 'white'}}
-        >
+        <Tab.Navigator>
             <Tab.Screen
                 name={'Дневник'}
                 component={MainScreen}
@@ -20,7 +18,7 @@ export const NavigationScreen = observer(() => {
                             <Image
                                 style={focused ? styles.tabBarSelectedIcon : styles.tabBarDisabledIcon}
                                 source={require('../../Assets/Icons/dictTabIcon.png')
-                            }
+                                }
                             />
                         ),
                         tabBarLabel: ({focused}) => (
@@ -28,13 +26,7 @@ export const NavigationScreen = observer(() => {
                                 Дневник
                             </Text>
                         ),
-                        headerStyle: {
-                            backgroundColor: 'green',
-                            borderBottomLeftRadius: 10,
-                            borderBottomRightRadius: 10,
-                        },
-                        title: 'Сегодня',
-                        headerTitleAlign: "center"
+                        headerShown: false
                     }
                 }
             />
@@ -54,7 +46,8 @@ export const NavigationScreen = observer(() => {
                             <Text style={focused ? styles.tabBarSelectedLabel : styles.tabBarDisabledLabel}>
                                 О приложении
                             </Text>
-                        )
+                        ),
+                        headerShown: false
                     }
                 }
             />

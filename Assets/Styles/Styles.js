@@ -19,7 +19,56 @@ export const styles = StyleSheet.create({
         fontSize: 12,
         color: '#858484'
     },
-    screenBackground: {
-        color: 'white'
+    aboutContainer: {
+        backgroundColor: "white",
+        padding: 20,
+        flex: 1
+    },
+    mainContainer: {
+        backgroundColor: "#F5F5F5",
+        flex: 1
+    },
+    safeArea: {
+        flex: 1
+    },
+    header: {
+        fontSize: 20,
+        fontWeight: "bold",
+        lineHeight: 23,
+        letterSpacing: -0.24,
+        textAlign: "left",
+        color: "#2C2C2C",
+        marginBottom: 10,
+    },
+    mainText: {
+        fontSize: 16,
+        fontWeight: "normal",
+        lineHeight: 19,
+        letterSpacing: -0.24,
+        textAlign: "left",
+        color: "#2C2C2C",
+        marginBottom: 20,
+    },
+    mainScreenCalendarText: {
+        fontSize: 20,
+        fontWeight: "700",
+        letterSpacing: -0.24,
+        lineHeight: 19,
+        color: 'white',
+        textAlign: 'center',
+        marginTop: 46
+    },
+    separator: {
+        height: 1,
+        marginVertical: 5,
+    },
+    mainScreenCalendar: {
+        backgroundColor: '#22BE54',
+        borderBottomLeftRadius: 26,
+        borderBottomRightRadius: 26,
+        height: 120,
+        width: 'auto',
+        justifyContent:'center',
+        alignItems: 'center'
     }
 })
