@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
         lineHeight: 19,
         color: 'white',
         textAlign: 'center',
-        marginBottom: 26,
+        marginBottom: 16,
     },
     separator: {
         height: 1,
@@ -103,7 +103,6 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         marginLeft: "auto",
         marginRight: 27,
-        flex: 1,
     },
     calorieCellCaloriesValue: {
         fontFamily: "Inter",
