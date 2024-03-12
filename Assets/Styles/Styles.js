@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     },
     mainContainer: {
         backgroundColor: "#F5F5F5",
-        flex: 1
+        flex: 1,
     },
     safeArea: {
         flex: 1
@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
         lineHeight: 19,
         color: 'white',
         textAlign: 'center',
-        marginTop: 46
+        marginBottom: 26,
     },
     separator: {
         height: 1,
@@ -66,9 +66,81 @@ export const styles = StyleSheet.create({
         backgroundColor: '#22BE54',
         borderBottomLeftRadius: 26,
         borderBottomRightRadius: 26,
-        height: 120,
+        height: 105,
         width: 'auto',
-        justifyContent:'center',
-        alignItems: 'center'
-    }
+        justifyContent: "flex-end",
+    },
+    mainScreenCalorieCellsContainer: {
+        marginTop: 28,
+        flexDirection: "column",
+        flex: 1,
+    },
+    mainScreenCalorieCellContainer: {
+        width: "auto",
+        height: 55,
+        marginHorizontal: 10,
+        marginBottom: 19,
+    },
+    calorieCellRectangle: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: "#FFFFFF",
+        borderRadius: 12,
+        paddingHorizontal: 9,
+    },
+    calorieCellLabel: {
+        fontFamily: "Roboto",
+        fontWeight: "600",
+        fontSize: 18,
+        lineHeight: 21,
+        letterSpacing: -0.24,
+        color: "#2C2C2C",
+        marginLeft: 14,
+    },
+    calorieCellCaloriesContainer: {
+        flexDirection: "column",
+        alignItems: "center",
+        marginLeft: "auto",
+        marginRight: 27,
+        flex: 1,
+    },
+    calorieCellCaloriesValue: {
+        fontFamily: "Inter",
+        fontWeight: "600",
+        fontSize: 16,
+        lineHeight: 19,
+        color: "#2C2C2C",
+    },
+    calorieCellCaloriesLabel: {
+        fontFamily: "Inter",
+        fontWeight: "400",
+        fontSize: 12,
+        lineHeight: 15,
+        color: "#858484",
+    },
+    calorieCellImage: {
+        width: 29,
+        height: 29,
+        marginLeft: 10,
+    },
+    calorieCellButton: {
+        backgroundColor: "#F5F5F5",
+        borderRadius: 50,
+        width: 32,
+        height: 32,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    calorieCellPlus: {
+        color: "#22BE54",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    waterCellMillilitresContainer: {
+        flexDirection: "column",
+        alignItems: "center",
+        marginLeft: "auto",
+        marginRight: 14,
+    },
 })
