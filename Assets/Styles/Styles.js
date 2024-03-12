@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
     },
     mainScreenCalorieCellContainer: {
         width: "auto",
-        height: 55,
+        height: 66,
         marginHorizontal: 10,
         marginBottom: 19,
     },
@@ -86,7 +86,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         backgroundColor: "#FFFFFF",
-        borderRadius: 12,
+        borderRadius: 16,
         paddingHorizontal: 9,
     },
     calorieCellLabel: {
@@ -130,6 +130,8 @@ export const styles = StyleSheet.create({
         height: 32,
         justifyContent: "center",
         alignItems: "center",
+        marginRight: 10,
+        marginLeft: 6
     },
     calorieCellPlus: {
         color: "#22BE54",
