@@ -9,19 +9,19 @@ export const MainScreen = observer(({navigation}) => {
     return (
         <View style={styles.mainContainer}>
             <MainScreenCalendarComponent/>
-            <View style={styles.mainScreenCalorieCellContainer}>
+            <View style={styles.mainScreenCalorieCellsContainer}>
                 <MainScreenCalorieCellComponent
                     title="Завтрак"
                     value="670"
-                    imageSource={require("../../Assets/Icons/breakfastIcon.png")} // Замените путем к изображению
+                    imageSource={require("../../Assets/Icons/breakfastIcon.png")}
                     onPress={() => {
-                        // Обработчик нажатия для ячейки
+                        // TODO: прописать логику для кнопки
                         console.log("Cell pressed");
                     }}/>
                 <MainScreenCalorieCellComponent
                     title="Обед"
                     value="0"
-                    imageSource={require("../../Assets/Icons/lunchIcon.png")} // Замените путем к изображению
+                    imageSource={require("../../Assets/Icons/lunchIcon.png")}
                     onPress={() => {
                         // Обработчик нажатия для ячейки
                         console.log("Cell pressed");
@@ -29,7 +29,7 @@ export const MainScreen = observer(({navigation}) => {
                 <MainScreenCalorieCellComponent
                     title="Ужин"
                     value="0"
-                    imageSource={require("../../Assets/Icons/dinnerIcon.png")} // Замените путем к изображению
+                    imageSource={require("../../Assets/Icons/dinnerIcon.png")}
                     onPress={() => {
                         // Обработчик нажатия для ячейки
                         console.log("Cell pressed");
@@ -37,7 +37,7 @@ export const MainScreen = observer(({navigation}) => {
                 <MainScreenCalorieCellComponent
                     title="Перекус / Другое"
                     value="100"
-                    imageSource={require("../../Assets/Icons/latemealIcon.png")} // Замените путем к изображению
+                    imageSource={require("../../Assets/Icons/lateMealIcon.png")}
                     onPress={() => {
                         // Обработчик нажатия для ячейки
                         console.log("Cell pressed");
@@ -46,7 +46,7 @@ export const MainScreen = observer(({navigation}) => {
                     title="Вода"
                     value="200"
                     format="Миллилитры"
-                    imageSource={require("../../Assets/Icons/bottleIcon.png")} // Замените путем к изображению
+                    imageSource={require("../../Assets/Icons/waterBottleIcon.png")}
                     onPress={() => {
                         // Обработчик нажатия для ячейки
                         console.log("Cell pressed");
