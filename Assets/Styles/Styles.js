@@ -1,54 +1,7 @@
 import {StyleSheet} from "react-native";
 
-export const styles = StyleSheet.create({
-    tabBarSelectedIcon: {
-        height: 25,
-        width: 25,
-        tintColor: '#22BE54'
-    },
-    tabBarDisabledIcon: {
-        height: 25,
-        width: 25,
-        tintColor: '#858484'
-    },
-    tabBarSelectedLabel: {
-        fontSize: 12,
-        color: '#22BE54'
-    },
-    tabBarDisabledLabel: {
-        fontSize: 12,
-        color: '#858484'
-    },
-    aboutContainer: {
-        backgroundColor: "white",
-        padding: 20,
-        flex: 1
-    },
-    mainContainer: {
-        backgroundColor: "#F5F5F5",
-        flex: 1,
-    },
-    safeArea: {
-        flex: 1
-    },
-    header: {
-        fontSize: 20,
-        fontWeight: "bold",
-        lineHeight: 23,
-        letterSpacing: -0.24,
-        textAlign: "left",
-        color: "#2C2C2C",
-        marginBottom: 10,
-    },
-    mainText: {
-        fontSize: 16,
-        fontWeight: "normal",
-        lineHeight: 19,
-        letterSpacing: -0.24,
-        textAlign: "left",
-        color: "#2C2C2C",
-        marginBottom: 20,
-    },
+
+export const mainScreenStyles = StyleSheet.create({
     mainScreenCalendarText: {
         fontSize: 20,
         fontWeight: "700",
@@ -58,9 +11,9 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 16,
     },
-    separator: {
-        height: 1,
-        marginVertical: 5,
+    mainContainer: {
+        backgroundColor: "#F5F5F5",
+        flex: 1,
     },
     mainScreenCalendar: {
         backgroundColor: '#22BE54',
@@ -75,6 +28,44 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         flex: 1,
     },
+})
+
+
+export const aboutScreenStyles = StyleSheet.create({
+    aboutContainer: {
+        backgroundColor: "white",
+        padding: 20,
+        flex: 1
+    },
+    aboutSafeArea: {
+        flex: 1
+    },
+    aboutHeader: {
+        fontSize: 20,
+        fontWeight: "bold",
+        lineHeight: 23,
+        letterSpacing: -0.24,
+        textAlign: "left",
+        color: "#2C2C2C",
+        marginBottom: 10,
+    },
+    aboutMainText: {
+        fontSize: 16,
+        fontWeight: "normal",
+        lineHeight: 19,
+        letterSpacing: -0.24,
+        textAlign: "left",
+        color: "#2C2C2C",
+        marginBottom: 20,
+    },
+    aboutSeparator: {
+        height: 1,
+        marginVertical: 5,
+    },
+})
+
+
+export const caloriesStyles = StyleSheet.create({
     mainScreenCalorieCellContainer: {
         width: "auto",
         height: 66,
@@ -143,5 +134,27 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         marginLeft: "auto",
         marginRight: 14,
+    },
+})
+
+
+export const tabBarStyles = StyleSheet.create({
+    tabBarSelectedIcon: {
+        height: 25,
+        width: 25,
+        tintColor: '#22BE54'
+    },
+    tabBarDisabledIcon: {
+        height: 25,
+        width: 25,
+        tintColor: '#858484'
+    },
+    tabBarSelectedLabel: {
+        fontSize: 12,
+        color: '#22BE54'
+    },
+    tabBarDisabledLabel: {
+        fontSize: 12,
+        color: '#858484'
     },
 })

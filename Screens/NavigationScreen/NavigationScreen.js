@@ -3,7 +3,7 @@ import { observer } from "mobx-react";
 import {MainScreen} from "../MainScreen/MainScreen";
 import {AboutScreen} from "../AboutScreen/AboutScreen";
 import {Image, Text} from "react-native";
-import {styles} from "../../Assets/Styles/Styles";
+import {tabBarStyles} from "../../Assets/Styles/Styles";
 
 const Tab = createBottomTabNavigator();
 export const NavigationScreen = observer(() => {
@@ -16,13 +16,13 @@ export const NavigationScreen = observer(() => {
                     {
                         tabBarIcon: ({focused}) => (
                             <Image
-                                style={focused ? styles.tabBarSelectedIcon : styles.tabBarDisabledIcon}
+                                style={focused ? tabBarStyles.tabBarSelectedIcon : tabBarStyles.tabBarDisabledIcon}
                                 source={require('../../Assets/Icons/dictTabIcon.png')
                                 }
                             />
                         ),
                         tabBarLabel: ({focused}) => (
-                            <Text style={focused ? styles.tabBarSelectedLabel : styles.tabBarDisabledLabel}>
+                            <Text style={focused ? tabBarStyles.tabBarSelectedLabel : tabBarStyles.tabBarDisabledLabel}>
                                 Дневник
                             </Text>
                         ),
@@ -37,13 +37,13 @@ export const NavigationScreen = observer(() => {
                     {
                         tabBarIcon: ({focused}) => (
                             <Image
-                                style={focused ? styles.tabBarSelectedIcon : styles.tabBarDisabledIcon}
+                                style={focused ? tabBarStyles.tabBarSelectedIcon : tabBarStyles.tabBarDisabledIcon}
                                 source={require('../../Assets/Icons/aboutTabIcon.png')
                                 }
                             />
                         ),
                         tabBarLabel: ({focused}) => (
-                            <Text style={focused ? styles.tabBarSelectedLabel : styles.tabBarDisabledLabel}>
+                            <Text style={focused ? tabBarStyles.tabBarSelectedLabel : tabBarStyles.tabBarDisabledLabel}>
                                 О приложении
                             </Text>
                         ),

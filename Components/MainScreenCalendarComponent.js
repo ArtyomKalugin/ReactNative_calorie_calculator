@@ -1,10 +1,12 @@
-import { Text, View, SafeAreaView } from "react-native";
-import {styles} from "../Assets/Styles/Styles";
+import {Text, View, TouchableOpacity} from "react-native";
+import {mainScreenStyles} from "../Assets/Styles/Styles";
 
-export const MainScreenCalendarComponent = () => {
+export const MainScreenCalendarComponent = ({onCalendarPressed}) => {
     return (
-        <View style={styles.mainScreenCalendar}>
-            <Text style={styles.mainScreenCalendarText}>Сегодня</Text>
+        <View style={mainScreenStyles.mainScreenCalendar}>
+            <TouchableOpacity onPress={onCalendarPressed}>
+                <Text style={mainScreenStyles.mainScreenCalendarText}>Сегодня</Text>
+            </TouchableOpacity>
         </View>
     )
 }

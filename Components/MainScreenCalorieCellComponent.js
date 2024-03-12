@@ -1,19 +1,19 @@
 import React from "react";
-import {View, Text, Image, TouchableOpacity, StyleSheet} from "react-native";
-import {styles} from "../Assets/Styles/Styles";
+import {View, Text, Image, TouchableOpacity} from "react-native";
+import {caloriesStyles} from "../Assets/Styles/Styles";
 
 const MainScreenCalorieCellComponent = ({title, value, imageSource, onPress}) => {
     return (
-        <View style={styles.mainScreenCalorieCellContainer}>
-            <View style={styles.calorieCellRectangle}>
-                <Image source={imageSource} style={styles.calorieCellImage}/>
-                <Text style={styles.calorieCellLabel}>{title}</Text>
-                <View style={styles.calorieCellCaloriesContainer}>
-                    <Text style={styles.calorieCellCaloriesValue}>{value}</Text>
-                    <Text style={styles.calorieCellCaloriesLabel}>Калории</Text>
+        <View style={caloriesStyles.mainScreenCalorieCellContainer}>
+            <View style={caloriesStyles.calorieCellRectangle}>
+                <Image source={imageSource} style={caloriesStyles.calorieCellImage}/>
+                <Text style={caloriesStyles.calorieCellLabel}>{title}</Text>
+                <View style={caloriesStyles.calorieCellCaloriesContainer}>
+                    <Text style={caloriesStyles.calorieCellCaloriesValue}>{value}</Text>
+                    <Text style={caloriesStyles.calorieCellCaloriesLabel}>Калории</Text>
                 </View>
-                <TouchableOpacity style={styles.calorieCellButton} onPress={onPress}>
-                    <Text style={styles.calorieCellPlus}>+</Text>
+                <TouchableOpacity style={caloriesStyles.calorieCellButton} onPress={onPress}>
+                    <Text style={caloriesStyles.calorieCellPlus}>+</Text>
                 </TouchableOpacity>
             </View>
         </View>

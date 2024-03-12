@@ -1,15 +1,15 @@
 import {observer} from "mobx-react";
 import {View} from "react-native";
-import {styles} from "../../Assets/Styles/Styles";
+import {mainScreenStyles} from "../../Assets/Styles/Styles";
 import {MainScreenCalendarComponent} from "../../Components/MainScreenCalendarComponent";
 import MainScreenCalorieCellComponent from "../../Components/MainScreenCalorieCellComponent";
 import MainScreenWaterCellComponent from "../../Components/MainScreenWaterCellComponent";
 
 export const MainScreen = observer(({navigation}) => {
     return (
-        <View style={styles.mainContainer}>
-            <MainScreenCalendarComponent/>
-            <View style={styles.mainScreenCalorieCellsContainer}>
+        <View style={mainScreenStyles.mainContainer}>
+            <MainScreenCalendarComponent onCalendarPressed={() => {console.log("EWFEWFWWF")}}/>
+            <View style={mainScreenStyles.mainScreenCalorieCellsContainer}>
                 <MainScreenCalorieCellComponent
                     title="Завтрак"
                     value="670"
