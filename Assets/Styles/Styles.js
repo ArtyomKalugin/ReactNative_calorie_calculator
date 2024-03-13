@@ -158,3 +158,35 @@ export const tabBarStyles = StyleSheet.create({
         color: '#858484'
     },
 })
+
+export const calendarStyles = StyleSheet.create({
+    calendar: {
+        backgroundColor: 'white',
+        width: 'auto',
+        height: 200
+    }
+})
+
+export const buttonStyles =  StyleSheet.create({
+    buttonContainer: {
+        width: 'auto',
+        height: 50,
+        marginLeft: 24,
+        marginRight: 24,
+        paddingTop: 14,
+        paddingBottom: 10,
+        backgroundColor: '#22BE54',
+        borderRadius: 8,
+        borderWidth: 1,
+        borderColor: '#fff',
+        marginTop: 16,
+    },
+    buttonText:{
+        color: 'white',
+        textAlign:'center',
+        paddingLeft: 10,
+        paddingRight: 10,
+        fontSize: 16,
+        fontWeight: "normal"
+    }
+})
