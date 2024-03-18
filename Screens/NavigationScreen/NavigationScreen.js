@@ -4,9 +4,17 @@ import {MainScreen} from "../MainScreen/MainScreen";
 import {AboutScreen} from "../AboutScreen/AboutScreen";
 import {Image, Text} from "react-native";
 import {tabBarStyles} from "../../Assets/Styles/Styles";
+import {useRootStore} from "../../Modules/RootStore/UseRootStore";
+import {useEffect} from "react";
 
 const Tab = createBottomTabNavigator();
 export const NavigationScreen = observer(() => {
+    const {dateStore} = useRootStore();
+
+    useEffect(() => {
+        dateStore.selectDateAction(new Date());
+    }, []);
+
     return (
         <Tab.Navigator>
             <Tab.Screen

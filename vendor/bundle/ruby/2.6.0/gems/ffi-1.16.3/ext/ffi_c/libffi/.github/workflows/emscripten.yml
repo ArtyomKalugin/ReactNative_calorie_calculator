@@ -118,7 +118,7 @@ jobs:
           ./testsuite/emscripten/build-tests.sh testsuite/libffi.call.test ${{ matrix.bigint }}
           ./testsuite/emscripten/build-tests.sh testsuite/libffi.closures.test ${{ matrix.bigint }}
 
-      - name: Store artifacts
+      - name: RootStore artifacts
         uses: actions/upload-artifact@v3
         with:
           name: built-tests

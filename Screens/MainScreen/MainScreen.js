@@ -8,13 +8,29 @@ import {useRef} from "react";
 import {Portal} from "react-native-portalize";
 import {Modalize} from "react-native-modalize";
 import {CalendarModalScreen} from "../CalendarModalScreen/CalendarModalScreen";
-import {isEnabled} from "react-native/Libraries/Performance/Systrace";
+import {useRootStore} from "../../Modules/RootStore/UseRootStore";
 
 
 export const MainScreen = observer(() => {
     const calendarModalRef = useRef(null);
+    const caloriesModalRef = useRef(null);
+    const millilitersModalRef = useRef(null);
+    const { dateStore } = useRootStore();
+
     const onCalendarPressed = () => {
         calendarModalRef.current.open();
+    }
+
+    const onCaloriesPressed = () => {
+        caloriesModalRef.current.open();
+    }
+
+    const onMillilitersPressed = () => {
+        millilitersModalRef.current.open();
+    }
+
+    const handleDateChanging = (newDate) => {
+        dateStore.selectDateAction(newDate);
     }
 
     return (
@@ -26,43 +42,28 @@ export const MainScreen = observer(() => {
                         title="Завтрак"
                         value="670"
                         imageSource={require("../../Assets/Icons/breakfastIcon.png")}
-                        onPress={() => {
-                            // TODO: прописать логику для кнопки
-                            console.log("Cell pressed");
-                        }}/>
+                        onPress={onCaloriesPressed}/>
                     <MainScreenCalorieCellComponent
                         title="Обед"
                         value="0"
                         imageSource={require("../../Assets/Icons/lunchIcon.png")}
-                        onPress={() => {
-                            // Обработчик нажатия для ячейки
-                            console.log("Cell pressed");
-                        }}/>
+                        onPress={onCaloriesPressed}/>
                     <MainScreenCalorieCellComponent
                         title="Ужин"
                         value="0"
                         imageSource={require("../../Assets/Icons/dinnerIcon.png")}
-                        onPress={() => {
-                            // Обработчик нажатия для ячейки
-                            console.log("Cell pressed");
-                        }}/>
+                        onPress={onCaloriesPressed}/>
                     <MainScreenCalorieCellComponent
                         title="Перекус / Другое"
                         value="100"
                         imageSource={require("../../Assets/Icons/lateMealIcon.png")}
-                        onPress={() => {
-                            // Обработчик нажатия для ячейки
-                            console.log("Cell pressed");
-                        }}/>
+                        onPress={onCaloriesPressed}/>
                     <MainScreenWaterCellComponent
                         title="Вода"
                         value="200"
                         format="Миллилитры"
                         imageSource={require("../../Assets/Icons/waterBottleIcon.png")}
-                        onPress={() => {
-                            // Обработчик нажатия для ячейки
-                            console.log("Cell pressed");
-                        }}/>
+                        onPress={onMillilitersPressed}/>
                 </View>
             </View>
 
@@ -74,6 +75,26 @@ export const MainScreen = observer(() => {
                     disableScrollIfPossible={true}
                 >
                     <CalendarModalScreen />
+                </Modalize>
+            </Portal>
+
+            <Portal>
+                <Modalize
+                    ref={caloriesModalRef}
+                    modalTopOffset={500}
+                    childrenStyle={{marginTop: 20}}
+                    disableScrollIfPossible={true}
+                >
+                </Modalize>
+            </Portal>
+
+            <Portal>
+                <Modalize
+                    ref={millilitersModalRef}
+                    modalTopOffset={500}
+                    childrenStyle={{marginTop: 20}}
+                    disableScrollIfPossible={true}
+                >
                 </Modalize>
             </Portal>
         </View>
