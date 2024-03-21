@@ -135,6 +135,25 @@ export const caloriesStyles = StyleSheet.create({
         marginLeft: "auto",
         marginRight: 14,
     },
+    modalTextInputContainer: {
+        width: 'auto',
+        height: 180,
+        marginLeft: 24,
+        marginRight: 24,
+        paddingTop: 14,
+        paddingBottom: 10,
+        marginTop: 16,
+        justifyContent: 'center',
+    },
+    modalTextInput: {
+        height: 48,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 6,
+        borderColor: 'rgba(133,132,132,0.5)',
+        backgroundColor: 'rgba(133,132,132,0.5)',
+    },
 })
 
 

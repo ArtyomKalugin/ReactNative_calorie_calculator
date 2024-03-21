@@ -4,33 +4,33 @@ import {mainScreenStyles} from "../../Assets/Styles/Styles";
 import {MainScreenCalendarComponent} from "../../Components/MainScreenCalendarComponent";
 import MainScreenCalorieCellComponent from "../../Components/MainScreenCalorieCellComponent";
 import MainScreenWaterCellComponent from "../../Components/MainScreenWaterCellComponent";
-import {useRef} from "react";
-import {Portal} from "react-native-portalize";
-import {Modalize} from "react-native-modalize";
+import {useRef, useState} from "react";
 import {CalendarModalScreen} from "../CalendarModalScreen/CalendarModalScreen";
-import {useRootStore} from "../../Modules/RootStore/UseRootStore";
+import {
+    CaloriesModalScreen,
+    CaloriesModalScreenStyles as CaloriesModalScreenStyle
+} from "../CaloriesModalScreen/CaloriesModalScreen";
+import {MillilitersModalScreen} from "../MillilitersModalScreen/MillilitersModalScreen";
 
 
 export const MainScreen = observer(() => {
+    const [newCaloriesStyle, setNewCaloriesStyle] = useState(CaloriesModalScreenStyle.BREAKFAST);
+
     const calendarModalRef = useRef(null);
     const caloriesModalRef = useRef(null);
     const millilitersModalRef = useRef(null);
-    const { dateStore } = useRootStore();
 
     const onCalendarPressed = () => {
         calendarModalRef.current.open();
     }
 
-    const onCaloriesPressed = () => {
+    const onCaloriesPressed = (style) => {
+        setNewCaloriesStyle(style)
         caloriesModalRef.current.open();
     }
 
     const onMillilitersPressed = () => {
         millilitersModalRef.current.open();
-    }
-
-    const handleDateChanging = (newDate) => {
-        dateStore.selectDateAction(newDate);
     }
 
     return (
@@ -42,22 +42,22 @@ export const MainScreen = observer(() => {
                         title="Завтрак"
                         value="670"
                         imageSource={require("../../Assets/Icons/breakfastIcon.png")}
-                        onPress={onCaloriesPressed}/>
+                        onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.BREAKFAST)}/>
                     <MainScreenCalorieCellComponent
                         title="Обед"
                         value="0"
                         imageSource={require("../../Assets/Icons/lunchIcon.png")}
-                        onPress={onCaloriesPressed}/>
+                        onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.LUNCH)}/>
                     <MainScreenCalorieCellComponent
                         title="Ужин"
                         value="0"
                         imageSource={require("../../Assets/Icons/dinnerIcon.png")}
-                        onPress={onCaloriesPressed}/>
+                        onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.DINNER)}/>
                     <MainScreenCalorieCellComponent
                         title="Перекус / Другое"
                         value="100"
                         imageSource={require("../../Assets/Icons/lateMealIcon.png")}
-                        onPress={onCaloriesPressed}/>
+                        onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.ANOTHER)}/>
                     <MainScreenWaterCellComponent
                         title="Вода"
                         value="200"
@@ -67,36 +67,9 @@ export const MainScreen = observer(() => {
                 </View>
             </View>
 
-            <Portal>
-                <Modalize
-                    ref={calendarModalRef}
-                    modalTopOffset={500}
-                    childrenStyle={{marginTop: 20}}
-                    disableScrollIfPossible={true}
-                >
-                    <CalendarModalScreen />
-                </Modalize>
-            </Portal>
-
-            <Portal>
-                <Modalize
-                    ref={caloriesModalRef}
-                    modalTopOffset={500}
-                    childrenStyle={{marginTop: 20}}
-                    disableScrollIfPossible={true}
-                >
-                </Modalize>
-            </Portal>
-
-            <Portal>
-                <Modalize
-                    ref={millilitersModalRef}
-                    modalTopOffset={500}
-                    childrenStyle={{marginTop: 20}}
-                    disableScrollIfPossible={true}
-                >
-                </Modalize>
-            </Portal>
+            <CalendarModalScreen modalRef={calendarModalRef} />
+            <CaloriesModalScreen modalRef={caloriesModalRef} style={newCaloriesStyle} />
+            <MillilitersModalScreen modalRef={millilitersModalRef} />
         </View>
     );
 })

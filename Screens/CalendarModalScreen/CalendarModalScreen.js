@@ -5,24 +5,36 @@ import {calendarStyles} from "../../Assets/Styles/Styles";
 import {BottomButton} from "../../Components/BottomButton";
 import {useRootStore} from "../../Modules/RootStore/UseRootStore";
 import {useState} from "react";
+import {Modalize} from "react-native-modalize";
+import {Portal} from "react-native-portalize";
 
-export const CalendarModalScreen = observer(() => {
+export const CalendarModalScreen = observer(({modalRef}) => {
     const [newDate, setNewDate] = useState(new Date());
     const { dateStore } = useRootStore();
 
     const handleDateChanging = () => {
         dateStore.selectDateAction(newDate);
+        modalRef.current?.close();
     };
 
     return (
-        <View>
-            <DatePicker
-                style={calendarStyles.calendar}
-                minimumDate={new Date('2000-01-01')}
-                maximumDate={new Date()}
-                onDateChange={date => setNewDate(date)}
-            />
-            <BottomButton title={'Применить'} onPress={handleDateChanging} />
-        </View>
+        <Portal>
+            <Modalize
+                ref={modalRef}
+                modalTopOffset={500}
+                childrenStyle={{marginTop: 20}}
+                disableScrollIfPossible={true}
+            >
+                <View>
+                    <DatePicker
+                        style={calendarStyles.calendar}
+                        minimumDate={new Date('2000-01-01')}
+                        maximumDate={new Date()}
+                        onDateChange={date => setNewDate(date)}
+                    />
+                    <BottomButton title={'Применить'} onPress={handleDateChanging} />
+                </View>
+            </Modalize>
+        </Portal>
     );
 })
