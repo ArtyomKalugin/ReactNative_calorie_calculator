@@ -1,8 +1,9 @@
 import React from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import {caloriesStyles} from "../Assets/Styles/Styles";
+import {observer} from "mobx-react";
 
-const MainScreenCalorieCellComponent = ({title, value, imageSource, onPress}) => {
+const MainScreenCalorieCellComponent = observer(({title, value, imageSource, onPress}) => {
     return (
         <View style={caloriesStyles.mainScreenCalorieCellContainer}>
             <View style={caloriesStyles.calorieCellRectangle}>
@@ -18,6 +19,6 @@ const MainScreenCalorieCellComponent = ({title, value, imageSource, onPress}) =>
             </View>
         </View>
     );
-};
+});
 
 export default MainScreenCalorieCellComponent;

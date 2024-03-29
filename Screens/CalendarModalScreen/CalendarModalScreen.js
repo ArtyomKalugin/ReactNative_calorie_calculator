@@ -10,10 +10,13 @@ import {Portal} from "react-native-portalize";
 
 export const CalendarModalScreen = observer(({modalRef}) => {
     const [newDate, setNewDate] = useState(new Date());
-    const { dateStore } = useRootStore();
+    const { dateStore, recordStore } = useRootStore();
 
     const handleDateChanging = () => {
         dateStore.selectDateAction(newDate);
+        const date = dateStore.getSelectedDate;
+        const record = recordStore.findRecordByDate(date.toLocaleDateString());
+        recordStore.setSelectedRecord(record, date.toLocaleDateString());
         modalRef.current?.close();
     };
 

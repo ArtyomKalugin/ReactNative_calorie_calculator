@@ -15,6 +15,6 @@ export default class RecordService {
     }
 
     findRecordByDate = (date) => {
-        return RealmClient.objectForPrimaryKey(Record, date)
+        return RealmClient.objectForPrimaryKey(RecordTable, date);
     }
 }
