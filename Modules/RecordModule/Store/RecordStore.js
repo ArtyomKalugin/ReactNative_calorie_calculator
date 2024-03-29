@@ -1,35 +1,45 @@
 import RecordService from "../Service/RecordService";
-import {makeAutoObservable, values} from "mobx";
+import {makeAutoObservable} from "mobx";
+
 export default class RecordStore {
     recordService;
-    isLoading = false;
+    selectedRecord;
 
     constructor() {
         this.recordService = new RecordService();
+        const date = new Date()
+        this.selectedRecord = this.findRecordByDate(date.toLocaleDateString());
         makeAutoObservable(this);
     };
 
     createRecord = (record) => {
-        this.setIsLoading(true);
         this.recordService.createRecord(record);
-        this.setIsLoading(false);
     };
 
     updateRecord = (record, values) => {
-        this.setIsLoading(true);
         this.recordService.updateRecord(record, values);
-        this.setIsLoading(false);
     }
 
     findRecordByDate = (date) => {
-        this.setIsLoading(true);
-        const result = this.recordService.findRecordByDate(date);
-        this.setIsLoading(false);
-
-        return result;
+        return this.recordService.findRecordByDate(date);
     }
 
-    setIsLoading = isLoading => {
-        this.isLoading = isLoading;
+    setSelectedRecord = (record, date) => {
+        if (record === null) {
+            this.selectedRecord = {
+                _date: date,
+                breakfastCalories: 0,
+                lunchCalories: 0,
+                dinnerCalories: 0,
+                anotherCalories: 0,
+                waterMillilitres: 0
+            }
+        } else {
+            this.selectedRecord = record;
+        }
+    }
+
+    get getSelectedRecord() {
+        return this.selectedRecord;
     }
 }

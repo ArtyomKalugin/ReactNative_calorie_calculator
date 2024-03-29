@@ -11,10 +11,12 @@ import {
     CaloriesModalScreenStyles as CaloriesModalScreenStyle
 } from "../CaloriesModalScreen/CaloriesModalScreen";
 import {MillilitersModalScreen} from "../MillilitersModalScreen/MillilitersModalScreen";
+import {useRootStore} from "../../Modules/RootStore/UseRootStore";
 
 
 export const MainScreen = observer(() => {
     const [newCaloriesStyle, setNewCaloriesStyle] = useState(CaloriesModalScreenStyle.BREAKFAST);
+    const { recordStore, dateStore } = useRootStore();
 
     const calendarModalRef = useRef(null);
     const caloriesModalRef = useRef(null);
@@ -33,6 +35,10 @@ export const MainScreen = observer(() => {
         millilitersModalRef.current.open();
     }
 
+    function getCurrentRecord() {
+        return recordStore.getSelectedRecord;
+    }
+
     return (
         <View>
             <View style={mainScreenStyles.mainContainer}>
@@ -40,27 +46,27 @@ export const MainScreen = observer(() => {
                 <View style={mainScreenStyles.mainScreenCalorieCellsContainer}>
                     <MainScreenCalorieCellComponent
                         title="Завтрак"
-                        value="670"
+                        value={getCurrentRecord().breakfastCalories.toString()}
                         imageSource={require("../../Assets/Icons/breakfastIcon.png")}
                         onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.BREAKFAST)}/>
                     <MainScreenCalorieCellComponent
                         title="Обед"
-                        value="0"
+                        value={getCurrentRecord().lunchCalories.toString()}
                         imageSource={require("../../Assets/Icons/lunchIcon.png")}
                         onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.LUNCH)}/>
                     <MainScreenCalorieCellComponent
                         title="Ужин"
-                        value="0"
+                        value={getCurrentRecord().dinnerCalories.toString()}
                         imageSource={require("../../Assets/Icons/dinnerIcon.png")}
                         onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.DINNER)}/>
                     <MainScreenCalorieCellComponent
                         title="Перекус / Другое"
-                        value="100"
+                        value={getCurrentRecord().anotherCalories.toString()}
                         imageSource={require("../../Assets/Icons/lateMealIcon.png")}
                         onPress={() => onCaloriesPressed(CaloriesModalScreenStyle.ANOTHER)}/>
                     <MainScreenWaterCellComponent
                         title="Вода"
-                        value="200"
+                        value={getCurrentRecord().waterMillilitres.toString()}
                         format="Миллилитры"
                         imageSource={require("../../Assets/Icons/waterBottleIcon.png")}
                         onPress={onMillilitersPressed}/>

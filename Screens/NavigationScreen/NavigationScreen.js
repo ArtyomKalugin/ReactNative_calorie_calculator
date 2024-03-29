@@ -9,10 +9,14 @@ import {useEffect} from "react";
 
 const Tab = createBottomTabNavigator();
 export const NavigationScreen = observer(() => {
-    const {dateStore} = useRootStore();
+    const {dateStore, recordStore} = useRootStore();
 
     useEffect(() => {
         dateStore.selectDateAction(new Date());
+
+        const date = dateStore.getSelectedDate;
+        const selectedRecord = recordStore.findRecordByDate(date.toLocaleDateString());
+        recordStore.setSelectedRecord(selectedRecord, date.toLocaleDateString());
     }, []);
 
     return (
