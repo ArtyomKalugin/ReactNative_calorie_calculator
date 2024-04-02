@@ -7,6 +7,7 @@ import {useRootStore} from "../../Modules/RootStore/UseRootStore";
 import {useState} from "react";
 import {Modalize} from "react-native-modalize";
 import {Portal} from "react-native-portalize";
+import {DateStore} from "../../Modules/DateModule/Store/DateStore";
 
 export const CalendarModalScreen = observer(({modalRef}) => {
     const [newDate, setNewDate] = useState(new Date());
@@ -20,6 +21,10 @@ export const CalendarModalScreen = observer(({modalRef}) => {
         modalRef.current?.close();
     };
 
+    function getCurrentDate() {
+        return dateStore.getSelectedDate;
+    }
+
     return (
         <Portal>
             <Modalize
@@ -31,6 +36,7 @@ export const CalendarModalScreen = observer(({modalRef}) => {
                 <View>
                     <DatePicker
                         style={calendarStyles.calendar}
+                        date={getCurrentDate()}
                         minimumDate={new Date('2000-01-01')}
                         maximumDate={new Date()}
                         onDateChange={date => setNewDate(date)}
