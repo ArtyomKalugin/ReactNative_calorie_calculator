@@ -1,6 +1,6 @@
 import RecordService from "../Service/RecordService";
 import {makeAutoObservable} from "mobx";
-import codegenNativeCommands from "react-native/Libraries/Utilities/codegenNativeCommands";
+
 
 export default class RecordStore {
     recordService;
